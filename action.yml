@@ -1,1 +1,15 @@
+ 
+name: GitHack
 
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Githack
+        run: npm i githack
+      - name: Githack
+        run: ./node_modules/.bin/Githack
