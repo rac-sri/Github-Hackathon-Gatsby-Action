@@ -1,15 +1,14 @@
- 
-name: GitHack
-
-on: [push]
-
+on: push
+name: Build Gatsby Site in Subdirectory
 jobs:
   build:
+    name: Build Gatsby Site
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Run Githack
-        run: npm i githack
-      - name: Githack
-        run: ./node_modules/.bin/Githack
+    - uses: actions/checkout@master
+    - name: Build Gatsby Site
+      uses: jzweifel/gatsby-cli-github-action@master
+      env:
+        GATSBY_PROJECT_PATH: "./client"
+      with:
+        gatsby-arg: build
